@@ -113,7 +113,7 @@ export default function ActivityCreate() {
       data.description,
       data.unity,
       Materia[data.materia as keyof typeof Materia],
-      data.files,
+      data.files
     );
     startTransition(router.refresh);
     setOpenDialog(false);
