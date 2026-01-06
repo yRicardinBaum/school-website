@@ -1,14 +1,13 @@
 "use server";
 
 import aws from "@/lib/s3";
-import s3client from "@/lib/s3";
 import { prisma } from "@/prisma/db";
 import { Materia } from "@/prisma/generated/prisma/enums";
 
 export default async function getActivities(
   materia: Materia,
   offset: number,
-  limit: number,
+  limit: number
 ) {
   const materias = await prisma.activity.findMany({
     where: {
@@ -34,7 +33,7 @@ export async function createActivity(
   description: string,
   unity: string,
   materia: Materia,
-  fileList: FileList,
+  fileList: FileList
 ) {
   const files: File[] = Array.from(fileList ?? []);
   const activity = await prisma.activity.create({
